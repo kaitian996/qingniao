@@ -13,9 +13,9 @@
         "downlevelIteration": true,
         "lib": ["esnext", "DOM"],
         "declaration": true,
-        "outDir": "dist",
-        "declarationDir": "dist/types",
+        "outDir": "./dist",
+        "declarationDir": "./dist/types",
         "experimentalDecorators": true
     },
-    "exclude": ["play"]
+    "exclude": ["play","node_modules", "dist"]
 }
