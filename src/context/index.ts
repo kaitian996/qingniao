@@ -1,6 +1,7 @@
 import { defaultLoggerContextConfig } from '../config'
 import {
   ILogQueueManager,
+  ILogRecord,
   ILoggerContext,
   ILoggerContextOptions,
   ILoggerErrorManager,
@@ -31,7 +32,9 @@ export class LoggerContext implements ILoggerContext {
     const endTime = Date.now()
     debugPrint(true, `项目启动耗时:${endTime - startTime}`)
   }
-  public reportLog() {}
+  public reportLog(log: ILogRecord) {
+    this.logQueueManager.receiveLogMessage(log)
+  }
   public aspectRequest(): MethodDecorator {
     return (target, propertyKey, descriptor) => {}
   }

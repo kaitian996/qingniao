@@ -1,7 +1,7 @@
 {
     "name": "@zhuequejs/qingniao",
     "version": "0.0.1",
-    "description": "朱雀青鸟日志库",
+    "description": "朱雀青鸟日志监控埋点平台sdk",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rollup -c"

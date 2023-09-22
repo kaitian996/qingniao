@@ -1,4 +1,6 @@
-export interface ILogRecord {}
+import type { Axios } from 'axios'
+
+export type ILogRecord = {}
 export interface ILoggerContextOptions {
   /**
    * @des 命名空间
@@ -15,7 +17,7 @@ export interface ILoggerContextOptions {
   /**
    * @des 目标主机
    */
-  host?: string | string[]
+  host: string | string[]
   /**
    * @des debug模式
    */
@@ -59,9 +61,15 @@ export interface ILoggerContextOptions {
 export abstract class BaseContext {
   abstract readonly context: ILoggerContext
 }
-export interface ILogQueueManager extends BaseContext {}
+export interface ILogQueueManager extends BaseContext {
+  logQueue: ILogRecord[]
+  receiveLogMessage(log: ILogRecord): void
+}
 export interface ILoggerSocketManager extends BaseContext {}
-export interface ILoggerRuquestManager extends BaseContext {}
+export interface ILoggerRuquestManager extends BaseContext {
+  request: Axios
+  sendLog(log: ILogRecord | ILogRecord[]): Promise<void>
+}
 export interface ILoggerErrorManager extends BaseContext {}
 export interface ILoggerContext {
   options: ILoggerContextOptions
