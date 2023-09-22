@@ -1,7 +1,7 @@
-import { ILoggerContext, ILoggerRuquestManager } from 'src/interface'
+import { ILoggerContext, ILoggerRuquestManager } from '../interface'
 
 export class LoggerRuquestManager implements ILoggerRuquestManager {
-  context: ILoggerContext
+  readonly context: ILoggerContext
   constructor(context: ILoggerContext) {
     this.context = context
   }

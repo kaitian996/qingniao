@@ -62,6 +62,7 @@ export abstract class BaseContext {
 export interface ILogQueueManager extends BaseContext {}
 export interface ILoggerSocketManager extends BaseContext {}
 export interface ILoggerRuquestManager extends BaseContext {}
+export interface ILoggerErrorManager extends BaseContext {}
 export interface ILoggerContext {
   options: ILoggerContextOptions
   logQueueManager: ILogQueueManager

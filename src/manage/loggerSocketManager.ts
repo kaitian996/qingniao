@@ -1,7 +1,7 @@
-import { ILoggerContext, ILoggerSocketManager } from 'src/interface'
+import { ILoggerContext, ILoggerSocketManager } from '../interface'
 
 export class LoggerSocketManager implements ILoggerSocketManager {
-  context: ILoggerContext
+  readonly context: ILoggerContext
   constructor(context: ILoggerContext) {
     this.context = context
   }

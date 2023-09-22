@@ -1,4 +1,4 @@
-import { ILoggerContextOptions } from 'src/interface'
+import { ILoggerContextOptions } from '../interface'
 
 export const defaultLoggerContextConfig: ILoggerContextOptions = {
   nameSpace: '',
