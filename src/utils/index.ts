@@ -1,3 +1,5 @@
+import { __DEV__ } from '../constants'
+
 export function mergeConfig<T extends Record<string, any>>(
   defaultConfig: T,
   customConfig: T,
@@ -8,7 +10,8 @@ export function mergeConfig<T extends Record<string, any>>(
   return defaultConfig
 }
 const debugMessageStack: any[][] = []
-export function debugPrint(end: boolean, ...message: any[]): void {
+export function debugPrint(end: boolean, ...message: any[]): void {  
+  if (!__DEV__) return
   debugMessageStack.push(message)
   if (end) {
     console.group(
@@ -21,4 +24,8 @@ export function debugPrint(end: boolean, ...message: any[]): void {
     console.groupEnd()
     debugMessageStack.length = 0
   }
+}
+export function printStep(...message: any[]): void {
+  if (!__DEV__) return
+  console.log('%c[qingniao:step]', 'color: #ff983f', ...message)
 }

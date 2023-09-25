@@ -67,7 +67,6 @@ export interface ILogQueueManager extends BaseContext {
 }
 export interface ILoggerSocketManager extends BaseContext {}
 export interface ILoggerRuquestManager extends BaseContext {
-  request: Axios
   sendLog(log: ILogRecord | ILogRecord[]): Promise<void>
 }
 export interface ILoggerErrorManager extends BaseContext {}
