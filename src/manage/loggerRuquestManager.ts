@@ -48,10 +48,10 @@ export class LoggerRuquestManager implements ILoggerRuquestManager {
         }
         const params = paramsList.join('&')
         url = url + '?' + params
-        xhr.open('get', url, false)
+        xhr.open('get', url, true)
         xhr.send()
       } else if (method.toUpperCase() === 'POST') {
-        xhr.open('post', url, false)
+        xhr.open('post', url, true)
         xhr.setRequestHeader(
           'Content-Type',
           'application/x-www-form-urlencoded;charset=utf-8',

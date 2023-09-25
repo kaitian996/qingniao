@@ -1,6 +1,34 @@
-import type { Axios } from 'axios'
-
-export type ILogRecord = {}
+export type ILogType =
+  | {
+      type: 'log'
+      eventType: 'click' | 'request'
+      timeConsuming?: number
+    }
+  | {
+      type: 'error'
+      errorType: string
+      errorStack: Error
+    }
+  | {
+      type: 'point'
+    }
+export type ILogRecord = {
+  time: string
+  systemInfo: {
+    ip: string
+    userAgent: string
+  }
+  appInfo: {
+    appId: string
+    appName: string
+    version: string
+  }
+  userInfo: {
+    userId: number
+  }
+  pagePath: string
+  pageFullPath: string
+} & ILogType
 export interface ILoggerContextOptions {
   /**
    * @des 命名空间
