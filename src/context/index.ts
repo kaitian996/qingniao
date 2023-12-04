@@ -23,6 +23,8 @@ export class LoggerContext implements ILoggerContext {
   constructor(options: ILoggerContextOptions) {
     const startTime = Date.now()
     this.options = mergeConfig(defaultLoggerContextConfig, options)
+    window && (window['_qingniao_LoggerContext'] = this)
+    window && (window['__QINGNIAO_DEV__'] = this.options.debug?.use || false)
     if (!this.options.host) {
       throw new Error('目标主机必须传入！')
     }
@@ -34,8 +36,6 @@ export class LoggerContext implements ILoggerContext {
     this.loggerSocketManager = new LoggerSocketManager(this)
     this.loggerRuquestManager = new LoggerRuquestManager(this)
     this.loggerErrorManager = new LoggerErrorManager(this)
-    window && (window['_qingniao_LoggerContext'] = this)
-    window && (window['__QINGNIAO_DEV__'] = this.options.debug?.use || false)
     const endTime = Date.now()
     debugPrint(true, `项目启动耗时:${endTime - startTime}`)
   }

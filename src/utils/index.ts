@@ -1,5 +1,5 @@
 import { ILogRecord, ILogType } from '../interface'
-import { __DEV__, version } from '../constants'
+import { version } from '../constants'
 
 export function mergeConfig<T extends Record<string, any>>(
   defaultConfig: T,
@@ -62,7 +62,7 @@ export function useDateFormat(
 }
 const debugMessageStack: any[][] = []
 export function debugPrint(end: boolean, ...message: any[]): void {
-  if (!__DEV__) return
+  if (!window['__QINGNIAO_DEV__']) return
   debugMessageStack.push(message)
   if (end) {
     console.group(
@@ -77,6 +77,6 @@ export function debugPrint(end: boolean, ...message: any[]): void {
   }
 }
 export function printStep(...message: any[]): void {
-  if (!__DEV__) return
+  if (!window['__QINGNIAO_DEV__']) return
   console.log('%c[qingniao:step]', 'color: #ff983f', ...message)
 }

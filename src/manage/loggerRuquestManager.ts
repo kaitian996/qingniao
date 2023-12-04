@@ -14,17 +14,17 @@ export class LoggerRuquestManager implements ILoggerRuquestManager {
     if (typeof host === 'string') {
       try {
         await this.ajax(host, 'POST', log)
-        printStep('日志上报成功', `host:${host}`, `log:${log}`)
+        printStep('日志上报成功', `host:${host}`, `log:`, log)
       } catch (error) {
-        printStep('日志上报失败', `host:${host}`, `log:${log}`, error)
+        printStep('日志上报失败', `host:${host}`, `log:`, log, error)
       }
     } else if (Array.isArray(host)) {
       host.forEach(async (target) => {
         try {
           await this.ajax(target, 'POST', log)
-          printStep('日志上报成功', `host:${host}`, `log:${log}`)
+          printStep('日志上报成功', `host:${host}`, `log:`, log)
         } catch (error) {
-          printStep('日志上报失败', `host:${host}`, `log:${log}`, error)
+          printStep('日志上报失败', `host:${host}`, `log:`, log, error)
         }
       })
     }
