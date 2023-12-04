@@ -1,5 +1,5 @@
 {
-    "name": "@zhuequejs/qingniao",
+    "name": "@zhuquejs/qingniao",
     "version": "0.0.1",
     "description": "朱雀青鸟日志监控埋点平台sdk",
     "scripts": {
